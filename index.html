@@ -1,0 +1,421 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriela Santos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(99, 98, 98);
+        background-image: url("/images/background.jpeg"), url("images/background1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .profile-card {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    padding: 100px 25px 25px;
+    width: 360px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px); /* Aplica o desfoque de 10px ao fundo */
+}
+
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        top: -75px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid white;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #f0f0f0;
+        overflow: hidden;
+      }
+      .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .user-info h2 {
+        margin: 0;
+        font-size: 1.8em;
+        color: #000000;
+      }
+      .verified-icon {
+        width: 20px;
+        height: 20px;
+        fill: #1da1f2;
+      }
+      .status {
+        background-color: #d4edda;
+        color: #155724;
+        font-size: 0.85em;
+        padding: 4px 10px;
+        border-radius: 18px;
+        display: inline-flex;
+        align-items: center;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #2ecc71;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      .info {
+        margin: 6px 0;
+        font-size: 1.1em;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .user-message {
+        margin: 18px 0;
+        font-size: 1.15em;
+        color: #333;
+        line-height: 1.5;
+      }
+      .message-button {
+        background-color: #12a5ec;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-size: 1.1em;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .message-button:hover {
+        background-color: #1094d3;
+        transform: scale(1.02);
+      }
+      .sale-info {
+        margin-top: 12px;
+        font-size: 1.1em;
+      }
+      .sale-percentage {
+        color: #ff4444;
+        font-weight: bold;
+      }
+      .sale-timer {
+        color: #777;
+      }
+      .status-location-name {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-card">
+      <div class="profile-picture" id="profile-picture" style="background-image: url('/images/perfil.jpeg')"></div>
+      <div class="user-info">
+        <h2>Gabriela Santos</h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z" fill="#1094d3"></path>
+  <path d="M15.884 9.166l-4.334 6.5a.749.749 0 0 1-1.156.114l-2.415-2.415a.75.75 0 1 1 1.06-1.06l1.77 1.767 3.825-5.74a.75.75 0 1 1 1.25.834z" fill="white"></path>
+</svg>
+        <span class="status">
+          <span class="status-dot"></span>
+          Online
+        </span>
+      </div>
+      <p class="info">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        Tempo médio de resposta: 3 minutos
+      </p>
+      <p class="info" id="visitor-location">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </p>
+      <p class="user-message" id="user-message"></p>
+      <button class="message-button" onclick="window.location.href='https://t.me/acessovipninfajapBot';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.36 15.48L9.01 19.04C9.42 19.04 9.6 18.86 9.82 18.66L11.88 16.99L15.38 19.55C16.15 19.96 16.7 19.75 16.9 18.85L19.89 5.31L19.9 5.3C20.15 4.14 19.46 3.67 18.73 3.93L3.51 9.44C2.4 9.85 2.41 10.47 3.31 10.74L7.34 11.99L16.15 6.75C16.58 6.5 16.97 6.64 16.64 6.91L9.36 15.48Z" fill="currentColor"></path>
+</svg>
+        Toque aqui para me chamar
+      </button>
+      <p class="sale-info">
+        <span class="sale-percentage">A Promoção</span>
+        <span class="sale-timer" id="sale-timer"></span>
+      </p>
+    </div>
+    <script type="text/javascript">
+      const _0x4aa48d = _0x2c62;
+      (function (_0x389dbc, _0x22c220) {
+        const _0x25ebc5 = _0x2c62,
+          _0x2c9ab0 = _0x389dbc();
+        while (!![]) {
+          try {
+            const _0x1c2317 =
+              parseInt(_0x25ebc5(0x1c8)) / 0x1 +
+              (parseInt(_0x25ebc5(0x1e0)) / 0x2) *
+                (parseInt(_0x25ebc5(0x1e9)) / 0x3) +
+              parseInt(_0x25ebc5(0x1e2)) / 0x4 +
+              (-parseInt(_0x25ebc5(0x1ea)) / 0x5) *
+                (parseInt(_0x25ebc5(0x1c2)) / 0x6) +
+              -parseInt(_0x25ebc5(0x1e7)) / 0x7 +
+              -parseInt(_0x25ebc5(0x1df)) / 0x8 +
+              -parseInt(_0x25ebc5(0x1c9)) / 0x9;
+            if (_0x1c2317 === _0x22c220) break;
+            else _0x2c9ab0["push"](_0x2c9ab0["shift"]());
+          } catch (_0x4005f7) {
+            _0x2c9ab0["push"](_0x2c9ab0["shift"]());
+          }
+        }
+      })(_0x2b9c, 0x59dfb);
+      function setCookie(_0x292270, _0x553352) {
+        const _0x28b1e7 = _0x2c62;
+        document["cookie"] =
+          _0x292270 + "=" + (_0x553352 || "") + _0x28b1e7(0x1dd);
+      }
+      function getCookie(_0x4d0975) {
+        const _0x35739c = _0x2c62,
+          _0x2dc784 = _0x4d0975 + "=",
+          _0x38512f = document[_0x35739c(0x1de)][_0x35739c(0x1c3)](";");
+        for (
+          let _0x1177b4 = 0x0;
+          _0x1177b4 < _0x38512f["length"];
+          _0x1177b4++
+        ) {
+          let _0x54d2fb = _0x38512f[_0x1177b4];
+          while (_0x54d2fb[_0x35739c(0x1d5)](0x0) == "\x20")
+            _0x54d2fb = _0x54d2fb[_0x35739c(0x1ca)](
+              0x1,
+              _0x54d2fb[_0x35739c(0x1d2)]
+            );
+          if (_0x54d2fb[_0x35739c(0x1bd)](_0x2dc784) == 0x0)
+            return _0x54d2fb[_0x35739c(0x1ca)](
+              _0x2dc784[_0x35739c(0x1d2)],
+              _0x54d2fb[_0x35739c(0x1d2)]
+            );
+        }
+        return null;
+      }
+      function updateSaleTimer() {
+        const _0x7f8d96 = _0x2c62,
+          _0x2f2f7a = 0x11 * 0x3c + 0x26;
+        let _0x41909b = getCookie(_0x7f8d96(0x1da));
+        const _0x26d9a2 = new Date()[_0x7f8d96(0x1ce)]();
+        !_0x41909b || _0x26d9a2 - parseInt(_0x41909b) > _0x2f2f7a * 0x3e8
+          ? ((_0x41909b = _0x26d9a2), setCookie(_0x7f8d96(0x1da), _0x41909b))
+          : (_0x41909b = parseInt(_0x41909b));
+        function _0x204d04() {
+          const _0x5254eb = _0x7f8d96,
+            _0x2e8bda = new Date()[_0x5254eb(0x1ce)](),
+            _0xd18101 = Math[_0x5254eb(0x1c0)]((_0x2e8bda - _0x41909b) / 0x3e8),
+            _0x4caf4 = Math["max"](_0x2f2f7a - _0xd18101, 0x0);
+          if (_0x4caf4 <= 0x0)
+            (document[_0x5254eb(0x1d3)](_0x5254eb(0x1d1))[_0x5254eb(0x1d7)] =
+              _0x5254eb(0x1cd)),
+              (_0x41909b = new Date()["getTime"]()),
+              setCookie("saleStartTime", _0x41909b),
+              setTimeout(_0x204d04, 0x3e8);
+          else {
+            const _0x1fc8bb = Math[_0x5254eb(0x1c0)](
+                _0x4caf4 / (0x18 * 0x3c * 0x3c)
+              ),
+              _0x5b18a = Math[_0x5254eb(0x1c0)](
+                (_0x4caf4 % (0x18 * 0x3c * 0x3c)) / (0x3c * 0x3c)
+              ),
+              _0x599831 = Math[_0x5254eb(0x1c0)](
+                (_0x4caf4 % (0x3c * 0x3c)) / 0x3c
+              ),
+              _0x5cd2be = _0x4caf4 % 0x3c;
+            (document["getElementById"](_0x5254eb(0x1d1))[_0x5254eb(0x1d7)] =
+              "termina\x20em\x20" +
+              _0x1fc8bb +
+              "d\x20" +
+              _0x5b18a +
+              "h\x20" +
+              _0x599831[_0x5254eb(0x1cf)]()[_0x5254eb(0x1e4)](0x2, "0") +
+              "m\x20" +
+              _0x5cd2be["toString"]()[_0x5254eb(0x1e4)](0x2, "0") +
+              "s"),
+              setTimeout(_0x204d04, 0x3e8);
+          }
+        }
+        _0x204d04();
+      }
+      function _0x2b9c() {
+        const _0x24d00a = [
+          "then",
+          "addEventListener",
+          ";\x20path=/",
+          "cookie",
+          "734688lPWslc",
+          "50yJfHPF",
+          "\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20class=\x22icon\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<path\x20d=\x22M21\x2010c0\x207-9\x2013-9\x2013s-9-6-9-13a9\x209\x200\x200\x201\x2018\x200z\x22></path>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<circle\x20cx=\x2212\x22\x20cy=\x2210\x22\x20r=\x223\x22></circle>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20",
+          "2235880vegLpk",
+          "country",
+          "padStart",
+          "\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20",
+          "user-message",
+          "705985oXwqrf",
+          "visitor-location",
+          "80079JXgrLT",
+          "50GmKygZ",
+          "DOMContentLoaded",
+          "onload",
+          "style",
+          "country_code",
+          "error",
+          "indexOf",
+          "map",
+          "Error\x20fetching\x20location:",
+          "floor",
+          "Location",
+          "62652eeRlIe",
+          "split",
+          "jpeg",
+          "fromCodePoint",
+          "Unknown",
+          "charCodeAt",
+          "356773ITzAIN",
+          "8260506fVwUfl",
+          "substring",
+          "url(\x27avatar1.",
+          " \x20e\x20eu\x20respondo\x20todos\x20que\x20me\x20chamam\x20🔥",
+          "Ainda\x20da\x20tempo!",
+          "getTime",
+          "toString",
+          "emoji",
+          "sale-timer",
+          "length",
+          "getElementById",
+          "json",
+          "charAt",
+          "city",
+          "textContent",
+          "catch",
+          "innerHTML",
+          "saleStartTime",
+        ];
+        _0x2b9c = function () {
+          return _0x24d00a;
+        };
+        return _0x2b9c();
+      }
+      function getVisitorLocation() {
+        const _0x4ee44d = _0x2c62;
+        return fetch("https://get.geojs.io/v1/ip/geo.json")
+          [_0x4ee44d(0x1db)]((_0x575259) => _0x575259[_0x4ee44d(0x1d4)]())
+          [_0x4ee44d(0x1db)]((_0x341d45) => {
+            const _0x579c15 = _0x4ee44d;
+            return {
+              city: _0x341d45["city"],
+              country: _0x341d45["country"],
+              emoji: getFlagEmoji(_0x341d45[_0x579c15(0x1bb)]),
+            };
+          })
+          [_0x4ee44d(0x1d8)]((_0x50f416) => {
+            const _0x2ae003 = _0x4ee44d;
+            return (
+              console[_0x2ae003(0x1bc)](_0x2ae003(0x1bf), _0x50f416),
+              { city: _0x2ae003(0x1c6), country: _0x2ae003(0x1c1), emoji: "🌍" }
+            );
+          });
+      }
+      function getFlagEmoji(_0x5bbde5) {
+        const _0x52ba69 = _0x2c62,
+          _0x424c28 = _0x5bbde5["toUpperCase"]()
+            [_0x52ba69(0x1c3)]("")
+            [_0x52ba69(0x1be)](
+              (_0x1eb084) => 0x1f1a5 + _0x1eb084[_0x52ba69(0x1c7)]()
+            );
+        return String[_0x52ba69(0x1c5)](..._0x424c28);
+      }
+      function updateLocationInfo() {
+        const _0x4a3d4c = _0x2c62;
+        getVisitorLocation()[_0x4a3d4c(0x1db)]((_0x3afaba) => {
+          const _0x328bbf = _0x4a3d4c;
+          (document["getElementById"](_0x328bbf(0x1e8))[_0x328bbf(0x1d9)] =
+            _0x328bbf(0x1e1) +
+            _0x3afaba[_0x328bbf(0x1d6)] +
+            ",\x20" +
+            _0x3afaba[_0x328bbf(0x1e3)] +
+            _0x328bbf(0x1e5)),
+            (document[_0x328bbf(0x1d3)](_0x328bbf(0x1e6))[_0x328bbf(0x1d9)] =
+              "Moro\x20em\x20📍<span\x20class=\x22status-location-name\x22>" +
+              _0x3afaba[_0x328bbf(0x1d6)] +
+              "</span>\x20" +
+              _0x3afaba[_0x328bbf(0x1d0)] +
+              _0x328bbf(0x1cc));
+        });
+      }
+      function loadProfilePicture() {
+        const _0x276d3e = _0x2c62,
+          _0x4f9c45 = document["getElementById"]("profile-picture"),
+          _0x4fca29 = ["png", "jpg", _0x276d3e(0x1c4)];
+        function _0x594f62(_0xdf4ad2) {
+          const _0x510f9f = _0x276d3e;
+          _0x4f9c45[_0x510f9f(0x1ba)]["backgroundImage"] =
+            _0x510f9f(0x1cb) + _0xdf4ad2 + "\x27)";
+        }
+        for (let _0x29718a of _0x4fca29) {
+          let _0x26ce39 = new Image();
+          (_0x26ce39[_0x276d3e(0x1b9)] = function () {
+            _0x594f62(_0x29718a);
+            return;
+          }),
+            (_0x26ce39["src"] = "avatar1." + _0x29718a);
+        }
+      }
+      function _0x2c62(_0x5cb5db, _0x3f2399) {
+        const _0x2b9c33 = _0x2b9c();
+        return (
+          (_0x2c62 = function (_0x2c6214, _0x3dc67b) {
+            _0x2c6214 = _0x2c6214 - 0x1b9;
+            let _0x3307ca = _0x2b9c33[_0x2c6214];
+            return _0x3307ca;
+          }),
+          _0x2c62(_0x5cb5db, _0x3f2399)
+        );
+      }
+      function initializeAndUpdateContent() {
+        updateSaleTimer(), updateLocationInfo(), loadProfilePicture();
+      }
+      document[_0x4aa48d(0x1dc)](_0x4aa48d(0x1eb), initializeAndUpdateContent);
+
+      // Remove the visibilitychange event listener
+    </script>
+  
+
+</body></html>
